@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101827"><title>全球网站收集库</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="logo">◎</span><div><b>全球网站收集库</b><small>发现 · 收藏 · 探索全球好站</small></div></div>
+  <button id="adminBtn" class="admin-btn">管理入口</button>
+</header>
+<main>
+  <section class="hero"><div class="eyebrow">WORLDWIDE WEB DIRECTORY</div><h1>发现值得收藏的<br><em>全球优质网站</em></h1><p>把好用的网站，整理成你的数字书签。</p>
+  <div class="search"><span>⌕</span><input id="search" placeholder="搜索网站名称、简介或网址…"></div>
+  <div class="stats"><span><b id="total">0</b> 个网站</span><span><b id="categoryCount">0</b> 个分类</span><span>持续收录中</span></div></section>
+  <section class="section-head"><div><small>EXPLORE</small><h2 id="sectionTitle">精选网站</h2></div><select id="sort"><option value="new">最新收录</option><option value="name">名称排序</option></select></section>
+  <div id="categoryChips" class="chips"></div>
+  <section id="siteGrid" class="grid"></section>
+  <section id="empty" class="empty" hidden>暂时没有匹配的网站，试试其他关键词。</section>
+</main>
+<nav class="bottom-nav">
+ <button class="nav-item active" data-tab="home"><span>⌂</span>主页</button>
+ <button class="nav-item" data-tab="favorites"><span>♡</span>收藏</button>
+ <button class="nav-item" data-tab="categories"><span>▦</span>分类</button>
+</nav>
+<div id="adminModal" class="modal" hidden><div class="panel">
+ <button class="close" id="closeModal">×</button><div id="loginView">
+ <small>ADMIN CONSOLE</small><h2>管理员登录</h2><p class="muted">只有授权管理员可以上传和管理网站。</p>
+ <input id="email" type="email" placeholder="管理员邮箱"><input id="password" type="password" placeholder="密码">
+ <button id="login" class="primary">登录管理后台</button><p id="loginMsg" class="msg"></p></div>
+ <div id="manageView" hidden><small>CONTENT MANAGEMENT</small><h2>添加网站</h2>
+ <input id="siteName" placeholder="网站名称"><input id="siteUrl" placeholder="网址，例如 https://example.com">
+ <input id="siteCategory" placeholder="分类，例如 工具效率"><textarea id="siteDesc" placeholder="网站简介"></textarea>
+ <label class="upload">上传网站图片<input id="siteImage" type="file" accept="image/*"></label>
+ <button id="saveSite" class="primary">发布网站</button><button id="logout" class="secondary">退出登录</button><p id="saveMsg" class="msg"></p>
+ <h3>已收录网站</h3><div id="adminList"></div></div>
+</div></div>
+<script src="app.js"></script>
+</body></html>
